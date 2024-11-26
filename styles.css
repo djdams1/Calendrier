@@ -46,12 +46,12 @@ body {
 }
 
 .calendar-day.selected {
-  background-color: #b98421;
+  background-color: #007bff;
   color: white;
 }
 
 .calendar-day.today {
-  border: 2px solid #b98421;
+  border: 2px solid #007bff;
 }
 
 .appointments-section {
