@@ -1,0 +1,106 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e6f3ff;
+  margin: 0;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.calendar-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.calendar-day {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 5px;
+}
+
+.calendar-day:hover {
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+.calendar-day.selected {
+  background-color: #007bff;
+  color: white;
+}
+
+.calendar-day.today {
+  border: 2px solid #007bff;
+}
+
+.appointments-section {
+  margin-top: 20px;
+  padding: 20px;
+  border-top: 1px solid #ddd;
+}
+
+.add-appointment {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.appointment-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  padding: 4px 8px;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}

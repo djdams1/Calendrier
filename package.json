@@ -1,0 +1,44 @@
+{
+  "name": "calendrier-js",
+  "version": "1.0.0",
+  "description": "Une application de calendrier utilisant Electron.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "publish": "electron-builder --publish=always"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron-log": "^5.2.3",
+    "electron-updater": "^6.3.9"
+  },
+  "devDependencies": {
+    "electron": "^26.1.0",
+    "electron-builder": "^23.6.0"
+  },
+  "build": {
+    "appId": "com.tonapplication.calendar",
+    "productName": "CalendarApp",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
+      "!**/node_modules/.bin",
+      "!**/*.map",
+      "!**/tsconfig.json",
+      "!**/*.tsbuildinfo"
+    ],
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "ton_nom_utilisateur",
+        "repo": "ton_nom_depot"
+      }
+    ]
+  }
+}

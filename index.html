@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calendrier</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="calendar-container">
+    <div class="calendar-header">
+      <button id="prevMonth">Précédent</button>
+      <h2 id="monthDisplay"></h2>
+      <button id="nextMonth">Suivant</button>
+    </div>
+    <div class="calendar-grid" id="calendarGrid"></div>
+    <div class="appointments-section">
+      <h3>Rendez-vous pour le : <span id="selectedDate"></span></h3>
+      <div id="appointmentsList"></div>
+      <div class="add-appointment">
+        <input type="text" id="appointmentTitle" placeholder="Titre du rendez-vous">
+        <input type="time" id="appointmentTime">
+        <button id="addAppointment">Ajouter Rendez-vous</button>
+      </div>
+    </div>
+  </div>
+  <script src="calendar.js"></script>
+</body>
+</html>
