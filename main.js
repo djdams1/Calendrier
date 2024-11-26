@@ -1,20 +1,24 @@
-const { app, BrowserWindow } = require('electron');
-const { autoUpdater } = require('electron-updater');
-const log = require('electron-log');
+const { app, BrowserWindow, autoUpdater } = require('electron');
 const path = require('path');
 
-// Configuration du journal pour déboguer les mises à jour
-autoUpdater.logger = log;
-autoUpdater.logger.transports.file.level = 'info';
+// URL de mise à jour, généralement vers la page de releases GitHub
+const feedURL = 'https://github.com/ton_nom_utilisateur/ton_nom_depot/releases/latest/download/';
 
+// Fonction qui vérifie les mises à jour
+function checkForUpdates() {
+  autoUpdater.setFeedURL({ url: feedURL });
+  autoUpdater.checkForUpdatesAndNotify(); // Vérifie les mises à jour et les applique si disponible
+}
+
+// Créer la fenêtre principale
 function createWindow() {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
       nodeIntegration: true,
-      contextIsolation: false,
-    },
+      contextIsolation: false
+    }
   });
 
   win.loadFile('index.html');
@@ -22,7 +26,7 @@ function createWindow() {
 
 app.whenReady().then(() => {
   createWindow();
-  autoUpdater.checkForUpdatesAndNotify(); // Vérifie les mises à jour au démarrage
+  checkForUpdates(); // Vérifie les mises à jour lors du démarrage de l'application
 });
 
 app.on('window-all-closed', () => {
@@ -37,12 +41,16 @@ app.on('activate', () => {
   }
 });
 
-// Gestionnaire d'événements pour les mises à jour
+// Écouter les événements de mise à jour
 autoUpdater.on('update-available', () => {
-  log.info('Mise à jour disponible, téléchargement en cours...');
+  console.log('Mise à jour disponible');
 });
 
 autoUpdater.on('update-downloaded', () => {
-  log.info('Mise à jour téléchargée. Redémarrage requis.');
-  autoUpdater.quitAndInstall(); // Redémarre l'application pour appliquer la mise à jour
+  console.log('Mise à jour téléchargée');
+  autoUpdater.quitAndInstall(); // Redémarre l'application et installe la mise à jour
+});
+
+autoUpdater.on('error', (error) => {
+  console.error('Erreur de mise à jour:', error);
 });

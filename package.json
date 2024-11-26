@@ -36,8 +36,8 @@
     "publish": [
       {
         "provider": "github",
-        "owner": "ton_nom_utilisateur",
-        "repo": "ton_nom_depot"
+        "owner": "djdams1 ",
+        "repo": "Calendrier"
       }
     ]
   }
